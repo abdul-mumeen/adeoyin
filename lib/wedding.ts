@@ -8,7 +8,7 @@ export const wedding = {
   date: "2026-08-02T13:00:00",
   dateLabel: "Sunday, 2nd August 2026",
   hijriLabel: "18th Safar, 1448 AH",
-  city: "22, Alhaji Tadese street,Ahmadiyyah, Lagos, Nigeria",
+  city: "22, Alhaji Yekini Tadese street,Ahmadiyyah, Lagos, Nigeria",
   events: [
     {
       title: "Nikkah Ceremony",
