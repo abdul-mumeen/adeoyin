@@ -2,13 +2,13 @@
 export const wedding = {
   bride: "Rodiat",
   groom: "Mubarak",
-  brideFull: "Rodiat Oyinda Ameen",
-  groomFull: "Mubarak Adefinka Olasode",
+  brideFull: "Rodiat Oyindamola Alimi",
+  groomFull: "Mubarak Adeyinka Olasode",
   // ISO date-time of the Nikkah ceremony (local time of the venue).
   date: "2026-08-02T13:00:00",
   dateLabel: "Sunday, 2nd August 2026",
   hijriLabel: "18th Safar, 1448 AH",
-  city: "Abule-Egba, Lagos, Nigeria",
+  city: "22, Alhaji Tadese street,Ahmadiyyah, Lagos, Nigeria",
   events: [
     {
       title: "Nikkah Ceremony",
@@ -27,4 +27,16 @@ export const wedding = {
       address: "Abule-Egba, Lagos, Nigeria",
     },
   ],
+  // Gift / account details. Replace the placeholder values below.
+  gifts: {
+    nigeria: {
+      bankName: "Access Bank of Nigeria",
+      accountName: "Olasode Mubarak",
+      accountNumber: "0787675039",
+    },
+    canada: {
+      recipientName: "Mubarak Olasode",
+      interacEmail: "olasodemubaraka@gmail.com",
+    },
+  },
 }

@@ -7,8 +7,8 @@ export function Hero() {
       {/* Decorative arabesque backdrop */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/arabesque-hero.png)" }}
+        className="absolute inset-6 rounded-sm bg-cover bg-center sm:inset-10"
+        style={{ backgroundImage: "url(/images/arabesque-hero-gen.png)" }}
       />
       <div
         aria-hidden="true"
@@ -30,7 +30,7 @@ export function Hero() {
         <Ornament className="mt-8" tone="gold" />
 
         <p className="mt-8 font-serif text-lg italic text-primary-foreground/80">
-          Together with their families, we joyfully invite you to the Nikkah of
+          Together with our families, we joyfully invite you to our Aqdu Nikkah
         </p>
 
         <h1 className="mt-6 font-serif text-6xl leading-none text-primary-foreground sm:text-7xl md:text-8xl">
@@ -49,17 +49,20 @@ export function Hero() {
 
         <Ornament className="mt-10" tone="gold" />
 
+        {/* "Confirm Your Presence" button removed from the page per request.
+            Kept here in the codebase in case it is needed again.
         <a
           href="#rsvp"
           className="mt-10 inline-block rounded-sm border border-gold bg-gold/95 px-8 py-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-foreground transition-colors hover:bg-transparent hover:text-gold"
         >
           Confirm Your Presence
         </a>
+        */}
       </div>
 
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60">
-        <span className="text-[0.65rem] uppercase tracking-[0.3em]">Scroll</span>
+
       </div>
     </header>
   )

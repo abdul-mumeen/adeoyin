@@ -21,14 +21,31 @@ function getTimeLeft(target: number): TimeLeft {
   }
 }
 
-export function Countdown() {
-  const target = new Date(wedding.date).getTime()
+function isSameDay(a: Date, b: Date): boolean {
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate()
+  )
+}
+
+export function Countdown({ livestreamUrl }: { livestreamUrl?: string | null }) {
+  const eventDate = new Date(wedding.date)
+  const target = eventDate.getTime()
   const [time, setTime] = useState<TimeLeft | null>(null)
+  // Computed on the client so the link appears only on the wedding day
+  // (kept false during SSR/first render to avoid hydration mismatches).
+  const [isEventDay, setIsEventDay] = useState(false)
 
   useEffect(() => {
-    setTime(getTimeLeft(target))
-    const id = setInterval(() => setTime(getTimeLeft(target)), 1000)
+    const tick = () => {
+      setTime(getTimeLeft(target))
+      setIsEventDay(isSameDay(new Date(), eventDate))
+    }
+    tick()
+    const id = setInterval(tick, 1000)
     return () => clearInterval(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target])
 
   const units: { label: string; value: number }[] = [
@@ -38,18 +55,21 @@ export function Countdown() {
     { label: "Seconds", value: time?.seconds ?? 0 },
   ]
 
-  const arrived =
-    time && time.days === 0 && time.hours === 0 && time.minutes === 0 && time.seconds === 0
-
   return (
     <section className="bg-primary px-6 py-20 text-primary-foreground sm:py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs uppercase tracking-[0.35em] text-gold">
-          Counting every moment
+        <h2 className="mb-6 font-serif text-4xl sm:text-5xl">Until We Say</h2>
+        <p
+          dir="rtl"
+          lang="ar"
+          className="font-serif text-3xl leading-relaxed text-gold sm:text-4xl"
+        >
+          بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
         </p>
-        <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-          {arrived ? "Today We Become One" : "Until We Say Qabool Hai"}
-        </h2>
+        <p className="mt-6 font-serif text-lg italic text-primary-foreground/80 sm:text-xl">
+          &ldquo;Allah&rsquo;s blessing for you and blessings upon you. May you be
+          joined together in goodness.&rdquo;
+        </p>
 
         <Ornament className="mt-6" tone="gold" />
 
@@ -75,6 +95,20 @@ export function Countdown() {
         <p className="mt-10 font-serif text-lg italic text-primary-foreground/80">
           {wedding.dateLabel}
         </p>
+
+        {isEventDay && livestreamUrl ? (
+          <p className="mt-6 font-serif text-lg text-primary-foreground/90 sm:text-xl">
+            Join us online{" "}
+            <a
+              href={livestreamUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-gold underline decoration-gold/50 underline-offset-4 transition-colors hover:decoration-gold"
+            >
+              here
+            </a>
+          </p>
+        ) : null}
       </div>
     </section>
   )

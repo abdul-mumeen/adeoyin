@@ -1,20 +1,16 @@
 import { Ornament } from "./ornament"
 
 const milestones = [
-  {
-    label: "How it began",
-    title: "A Meeting Written by Fate",
-    text: "Our families were introduced through a mutual friend. What started as a simple conversation over tea slowly grew into a bond built on shared values, faith, and endless laughter.",
-  },
+ 
   {
     label: "Growing together",
     title: "Two Hearts, One Deen",
-    text: "We discovered a love for the same things — long walks, quiet prayers, and dreams of building a home rooted in kindness. Every conversation reminded us that Allah had a beautiful plan.",
+    text: "We fell in love threading the path of Allah. To establish the idea of completing half of our deen, and seeking the pleasure of our Lord",
   },
   {
     label: "The promise",
     title: "Choosing Forever",
-    text: "With the blessings and duas of our parents, we chose to walk this path together — to protect, cherish, and grow with one another for the sake of Allah, in this life and the next.",
+    text: " Seeking the pleasure of Allah, we have choosen forever. Walking this path together, we have chosen love and mercy as the nutrient of our relationship",
   },
 ]
 
