@@ -21,11 +21,35 @@ const amiri = Amiri({
   variable: '--font-amiri',
 })
 
+const siteTitle = 'Rodiat & Mubarak — Nikkah Invitation'
+const siteDescription =
+  'With the blessings of Allah, we invite you to celebrate the Nikkah of Rodiat & Mubarak. Join us as two souls become one.'
+
+// Absolute base URL so social share images resolve correctly. Uses the Vercel
+// production domain in deployment, or NEXT_PUBLIC_SITE_URL if you set a custom
+// domain; falls back to localhost in development.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3000')
+
 export const metadata: Metadata = {
-  title: 'Rodiat & Mubarak — Nikkah Invitation',
-  description:
-    'With the blessings of Allah, we invite you to celebrate the Nikkah of Rodiat & Mubarak. Join us as two souls become one.',
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
   generator: 'v0.app',
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: 'website',
+    siteName: 'Rodiat & Mubarak',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+  },
   icons: {
     icon: [
       {
