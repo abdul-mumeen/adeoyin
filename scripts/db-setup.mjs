@@ -4,9 +4,9 @@
 // Run with: node --env-file=.env.local scripts/db-setup.mjs
 import { neon } from "@neondatabase/serverless"
 
-const url = process.env.DATABASE_URL
+const url = process.env.NEW_DATABASE_URL
 if (!url) {
-  console.error("DATABASE_URL is not set. Add it to .env.local.")
+  console.error("NEW_DATABASE_URL is not set. Add it to .env.local.")
   process.exit(1)
 }
 

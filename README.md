@@ -58,7 +58,7 @@ interactive pieces (the Wishes wall and editable settings).
 
    ```dotenv
    # .env.local
-   DATABASE_URL="postgresql://user:password@ep-xxxx-pooler.region.aws.neon.tech/dbname?sslmode=require"
+   NEW_DATABASE_URL="postgresql://user:password@ep-xxxx-pooler.region.aws.neon.tech/dbname?sslmode=require"
    ```
 
    `.env.local` is git-ignored, so your credentials are never committed.
@@ -170,10 +170,10 @@ pnpm db:generate
 1. Push the repo to GitHub.
 2. Import the project at [vercel.com/new](https://vercel.com/new). Next.js and
    pnpm are auto-detected — no custom build settings needed.
-3. Add the `DATABASE_URL` environment variable (your Neon connection string)
+3. Add the `NEW_DATABASE_URL` environment variable (your Neon connection string)
    under **Project Settings → Environment Variables** for **Production** (and
    **Preview** if you want PR previews to hit the database).
 4. Deploy. Every push to `main` redeploys automatically.
 
 The tables already exist in Neon, so there's no build-time migration step — just
-make sure Vercel's `DATABASE_URL` points at the same database.
+make sure Vercel's `NEW_DATABASE_URL` points at the same database.

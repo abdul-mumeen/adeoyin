@@ -5,11 +5,11 @@ import * as schema from "./schema"
 type DrizzleClient = ReturnType<typeof createClient>
 
 function createClient() {
-  const databaseUrl = process.env.DATABASE_URL
+  const databaseUrl = process.env.NEW_DATABASE_URL
 
   if (!databaseUrl) {
     throw new Error(
-      "DATABASE_URL is not set. Add your Neon connection string to .env.local (and the Vercel project settings).",
+      "NEW_DATABASE_URL is not set. Add your Neon connection string to .env.local (and the Vercel project settings).",
     )
   }
 
@@ -17,7 +17,7 @@ function createClient() {
 }
 
 // Lazily instantiate so that merely importing this module (e.g. during
-// `next build`) does not require DATABASE_URL; the connection is only created
+// `next build`) does not require NEW_DATABASE_URL; the connection is only created
 // on first query at request time.
 let client: DrizzleClient | undefined
 

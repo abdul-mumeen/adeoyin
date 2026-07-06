@@ -1,6 +1,6 @@
 import { defineConfig } from "drizzle-kit"
 
-// Load DATABASE_URL from .env.local (Next.js convention) for drizzle-kit CLI.
+// Load NEW_DATABASE_URL from .env.local (Next.js convention) for drizzle-kit CLI.
 // process.loadEnvFile is available in Node 20.12+ / 24.
 try {
   process.loadEnvFile(".env.local")
@@ -13,6 +13,6 @@ export default defineConfig({
   out: "./drizzle",
   dialect: "postgresql",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: process.env.NEW_DATABASE_URL!,
   },
 })
